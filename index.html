@@ -2,54 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>💌 For Quinn</title>
+  <title>For Quinn</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Courier New", Courier, monospace;
-      background: #ffe4ec;
-      height: 100vh;
+      margin: 0;
+      min-height: 100vh;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0;
+
+      background: #ffe4ec;
+      font-family: "Courier New", Courier, monospace;
+      color: #000; /* FORCE text color */
     }
 
     .card {
-      background: #fff;
-      padding: 36px;
+      width: 420px;
+      padding: 32px;
+
+      background: #ffffff;
       border: 3px solid #000;
       box-shadow: 6px 6px 0 #000;
+
       text-align: center;
-      max-width: 420px;
-      position: relative;
     }
 
     h1 {
       font-size: 20px;
-      margin-bottom: 12px;
+      margin: 0 0 12px 0;
+      color: #000;
     }
 
     p {
       font-size: 14px;
-      margin-bottom: 24px;
-      color: #333;
+      margin: 0 0 24px 0;
+      color: #000;
     }
 
     button {
       font-family: inherit;
       font-size: 14px;
-      padding: 10px 20px;
-      border: 2px solid #000;
-      cursor: pointer;
-      margin: 10px;
-      background: #f5f5f5;
-      box-shadow: 3px 3px 0 #000;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
 
-    button:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0 #000;
+      padding: 10px 20px;
+      margin: 8px;
+
+      border: 2px solid #000;
+      background: #f5f5f5;
+      color: #000;
+
+      cursor: pointer;
+      box-shadow: 3px 3px 0 #000;
     }
 
     .yes {
@@ -61,12 +69,14 @@
     }
   </style>
 </head>
+
 <body>
   <div class="card" id="card">
-    <h1>💖 Hey babe, will you be my Valentine?</h1>
-    <p>Made this for you 💌</p>
-    <button class="yes" onclick="yesClicked()">Yes 💕</button>
-    <button class="no" id="noBtn">No 😢</button>
+    <h1>Hey babe, will you be my Valentine?</h1>
+    <p>Made this for you</p>
+
+    <button class="yes" onclick="yesClicked()">Yes</button>
+    <button class="no" id="noBtn">No</button>
   </div>
 
   <script>
@@ -80,22 +90,15 @@
       const maxX = cardRect.width - btnRect.width - 20;
       const maxY = cardRect.height - btnRect.height - 20;
 
-      const randomX = Math.random() * maxX;
-      const randomY = Math.random() * maxY;
-
       noBtn.style.position = "absolute";
-      noBtn.style.left = `${randomX}px`;
-      noBtn.style.top = `${randomY}px`;
-    });
-
-    noBtn.addEventListener("click", () => {
-      alert("That option has been disabled 😤 Try again.");
+      noBtn.style.left = Math.random() * maxX + "px";
+      noBtn.style.top = Math.random() * maxY + "px";
     });
 
     function yesClicked() {
       card.innerHTML = `
-        <h1>🥰 The obvious choice, yayy 💕</h1>
-        <p>Happy Valentine's Day, Dingus! 💌</p>
+        <h1>Good choice.</h1>
+        <p>Happy Valentine's Day ❤️</p>
       `;
     }
   </script>
